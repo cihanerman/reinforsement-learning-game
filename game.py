@@ -85,7 +85,7 @@ class Foe(pygame.sprite.Sprite):
     
 class DQLAgent:
     def __init__(self):
-        self.state_size = 4
+        self.state_size = 6
         self.action_size = 3 # right, left, dont move
         
         self.gamma = 0.95
