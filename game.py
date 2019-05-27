@@ -29,10 +29,10 @@ class Gamer(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((20,20))
-        self.image.fill(RED)
+        self.image.fill(BLACK)
         self.rect = self.image.get_rect()
         self.radius = 10
-        pygame.draw.circle(self.image, BLACK, self.rect.center, self.radius)
+        pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
         self.rect.centerx = WIDTH / 2
         self.rect.bottom = HEIGHT - 1
         self.speedx = 0
@@ -65,7 +65,7 @@ class Foe(pygame.sprite.Sprite):
         self.image.fill(BLUE)
         self.rect = self.image.get_rect()
         self.radius = 5
-        pygame.draw.circle(self.image, BLACK, self.rect.center, self.radius)
+        pygame.draw.circle(self.image, GREEN, self.rect.center, self.radius)
         self.rect.x = random.randrange(0, WIDTH - self.rect.width)
         self.rect.y = random.randrange(3,7)
         self.speedx = 0
@@ -245,7 +245,7 @@ class Env(pygame.sprite.Sprite):
                 self.reward = -100
                 self.total_reward += self.reward
                 self.done = True
-                self.running = False
+                running = False
                 print('Total reward: ',self.total_reward)
                 
             self.agent.remember(state, action, self.reward, next_state, self.done)
@@ -263,7 +263,7 @@ class Env(pygame.sprite.Sprite):
             
         pygame.quit()
         
-if __name__ == '__maim__':
+if __name__ == '__main__':
     env = Env()
     l = []
     t = 0
@@ -279,74 +279,3 @@ if __name__ == '__maim__':
         clock = pygame.time.Clock()
         
         env.run()                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
